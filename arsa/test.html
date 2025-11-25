@@ -1,0 +1,726 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>لوکس‌مارکت | فروشگاه اینترنتی</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+
+    <style>
+        :root {
+            --primary-color: #2563eb; /* Professional Blue */
+            --secondary-color: #1e293b; /* Dark Slate */
+            --accent-color: #f59e0b; /* Amber for CTAs */
+            --light-gray: #f3f4f6;
+            --white: #ffffff;
+            --border-color: #e2e8f0;
+            --text-main: #333333;
+            --shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Vazirmatn', sans-serif;
+            background-color: var(--light-gray);
+            color: var(--text-main);
+            line-height: 1.6;
+        }
+
+        a { text-decoration: none; color: inherit; }
+        ul { list-style: none; }
+
+        /* --- UTILITIES & LAYOUT --- */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 12px 30px;
+            background-color: var(--primary-color);
+            color: white;
+            border-radius: 5px;
+            font-weight: 600;
+            transition: transform 0.2s, background 0.2s;
+        }
+
+        .btn:hover {
+            background-color: #1d4ed8;
+            transform: translateY(-2px);
+        }
+
+        .btn-accent {
+            padding: 12px 30px;
+            background-color: var(--accent-color); /* Use your Amber accent color */
+            color: var(--secondary-color); /* Dark text on amber */
+            border-radius: 5px;
+            font-weight: 700;
+            transition: background 0.2s, transform 0.2s;
+        }
+
+        .btn-accent:hover {
+            background-color: #d97706; /* Darker amber */
+            transform: translateY(-2px);
+        }
+
+        /* --- TOP NOTIFICATION BAR --- */
+        .top-bar {
+            background-color: var(--secondary-color);
+            color: var(--white);
+            text-align: center;
+            padding: 8px 0;
+            font-size: 0.85rem;
+            font-weight: 500;
+        }
+
+        /* --- MAIN HEADER --- */
+        .main-header {
+            background-color: var(--white);
+            padding: 15px 0;
+            border-bottom: 1px solid var(--border-color);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+        }
+
+        .header-wrapper {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 40px;
+        }
+
+        /* Logo */
+        .logo {
+            font-size: 1.8rem;
+            font-weight: 800;
+            color: var(--primary-color);
+            letter-spacing: -0.5px;
+        }
+
+        /* Search Bar */
+        .search-container {
+            flex: 1;
+            position: relative;
+            max-width: 600px;
+        }
+
+        .search-form {
+            display: flex;
+            border: 2px solid var(--border-color);
+            border-radius: 50px; 
+            overflow: hidden;
+            transition: border-color 0.3s;
+        }
+
+        .search-form:focus-within {
+            border-color: var(--primary-color);
+        }
+
+        .search-input {
+            width: 100%;
+            padding: 12px 20px;
+            border: none;
+            outline: none;
+            font-size: 1rem;
+            font-family: inherit;
+        }
+
+        .search-btn {
+            background-color: var(--light-gray);
+            border: none;
+            padding: 0 25px;
+            cursor: pointer;
+            color: var(--secondary-color);
+            font-size: 1.1rem;
+            transition: background 0.2s;
+        }
+
+        .search-btn:hover {
+            background-color: #e2e8f0;
+            color: var(--primary-color);
+        }
+
+        /* Icons (Cart, User) */
+        .header-icons {
+            display: flex;
+            align-items: center;
+            gap: 25px;
+        }
+
+        .icon-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            font-size: 0.8rem;
+            cursor: pointer;
+            color: #64748b;
+            transition: color 0.3s;
+            position: relative;
+        }
+
+        .icon-item i {
+            font-size: 1.4rem;
+            margin-bottom: 4px;
+        }
+
+        .icon-item:hover {
+            color: var(--primary-color);
+        }
+
+        .cart-count {
+            position: absolute;
+            top: -5px;
+            left: -5px; 
+            background-color: var(--primary-color);
+            color: white;
+            font-size: 0.7rem;
+            font-weight: bold;
+            width: 18px;
+            height: 18px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            padding-top: 3px; 
+        }
+
+        /* --- NAVIGATION BAR --- */
+        .nav-bar {
+            background-color: var(--white);
+            border-bottom: 1px solid var(--border-color);
+        }
+        
+        .nav-links {
+            display: flex;
+            gap: 30px;
+            padding: 12px 0;
+            font-weight: 500;
+            font-size: 0.95rem;
+        }
+
+        .nav-links li a:hover {
+            color: var(--primary-color);
+        }
+
+        /* ---------------------------------- */
+        /* --- HERO SLIDER (FIXED) --- */
+        /* ---------------------------------- */
+        .hero {
+            padding: 20px 0;
+            background-color: var(--light-gray);
+        }
+
+        .slider-container {
+            max-width: 1200px; 
+            margin: 0 auto;
+            position: relative;
+            height: 350px; /* Fixed height instead of padding-top */
+            overflow: hidden;
+            border-radius: 10px; 
+            box-shadow: 0 10px 20px rgba(0,0,0,0.15);
+        }
+
+        /* Wrapper for slides */
+        .swiper-wrapper { 
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 300%; /* 3 برابر عرض برای 3 اسلاید */
+            height: 100%;
+            display: flex;
+            transition: transform 0.5s ease-in-out;
+        }
+
+        .slide-item {
+            width: 33.333%; /* هر اسلاید 33.33% از عرض کل را می‌گیرد */
+            height: 100%;
+            flex-shrink: 0;
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: flex-end; 
+            text-align: right;
+            padding: 0 10%;
+            color: white;
+        }
+
+        .slide-item::before {
+            /* Dark overlay for text readability */
+            content: '';
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.4);
+            z-index: 1;
+        }
+
+        .slide-item img {
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            z-index: 0;
+        }
+
+        .slide-content {
+            position: relative;
+            z-index: 2;
+            max-width: 50%;
+        }
+
+        .slide-content h2 {
+            font-size: 1.6rem; /* Smaller for much shorter slider */
+            margin-bottom: 8px;
+            font-weight: 800;
+        }
+
+        .slide-content p {
+            font-size: 0.9rem; /* Smaller for much shorter slider */
+            margin-bottom: 15px;
+        }
+
+        /* Navigation Arrows */
+        .slider-nav {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            z-index: 10;
+            cursor: pointer;
+            background-color: rgba(255, 255, 255, 0.5);
+            border-radius: 50%;
+            width: 40px;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+            color: var(--secondary-color);
+            transition: background 0.2s;
+        }
+
+        .slider-nav:hover {
+            background-color: rgba(255, 255, 255, 0.8);
+        }
+
+        .nav-prev { right: 20px; }
+        .nav-next { left: 20px; }
+
+        /* Slider Indicators */
+        .slider-indicators {
+            position: absolute;
+            bottom: 20px;
+            right: 50%;
+            transform: translateX(50%);
+            display: flex;
+            gap: 8px;
+            z-index: 10;
+        }
+
+        .slider-indicator {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background-color: rgba(255, 255, 255, 0.5);
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .slider-indicator.active {
+            background-color: var(--white);
+        }
+
+
+        /* --- FEATURED PRODUCTS --- */
+        .section-title {
+            font-size: 2rem;
+            margin: 50px 0 30px;
+            font-weight: 700;
+            color: var(--secondary-color);
+        }
+
+        .product-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 30px;
+            padding-bottom: 50px;
+        }
+
+        .product-card {
+            background: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            transition: transform 0.3s;
+            position: relative;
+        }
+
+        .product-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .product-image {
+            width: 100%;
+            height: 250px;
+            background-color: #ddd;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #888;
+        }
+
+        .product-details {
+            padding: 20px;
+        }
+
+        .product-category {
+            font-size: 0.8rem;
+            color: #888;
+            text-transform: uppercase;
+            margin-bottom: 5px;
+        }
+
+        .product-title {
+            font-size: 1.1rem;
+            font-weight: 600;
+            margin-bottom: 10px;
+        }
+
+        .product-footer {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-top: 15px;
+        }
+
+        .price {
+            font-size: 1.2rem;
+            font-weight: 700;
+            color: var(--secondary-color);
+        }
+
+        .add-btn {
+            background-color: var(--light-gray);
+            color: var(--secondary-color);
+            border: none;
+            width: 35px;
+            height: 35px;
+            border-radius: 50%;
+            cursor: pointer;
+            transition: background 0.2s;
+        }
+        .add-btn:hover { background-color: var(--primary-color); color: white; }
+
+        /* --- RESPONSIVE --- */
+        @media (max-width: 768px) {
+            .header-wrapper {
+                flex-wrap: wrap;
+            }
+            .search-container {
+                order: 3;
+                min-width: 100%;
+                margin-top: 15px;
+            }
+            .nav-links {
+                /* Consider making a hamburger menu visible here */
+                display: none; 
+            }
+            .slider-container {
+                height: 250px; /* Adjusted for mobile */
+            }
+            .slide-content h2 { font-size: 1.3rem; }
+            .slide-content p { font-size: 0.8rem; }
+            .slide-content { max-width: 80%; }
+            .slider-nav { width: 30px; height: 30px; font-size: 1rem; }
+        }
+        
+        @media (max-width: 480px) {
+            .slider-container {
+                height: 200px; /* Adjusted for small mobile */
+            }
+            .slide-content { max-width: 90%; padding: 0 5%; }
+            .slide-content h2 { font-size: 1.1rem; }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="top-bar">
+        ارسال رایگان برای خریدهای بالای ۲ میلیون تومان | مهلت بازگشت ۳۰ روزه
+    </div>
+
+    <header class="main-header">
+        <div class="container header-wrapper">
+            
+            <a href="#" class="logo">
+                <img src="logo.jpg" alt="لوکس مارکت" style="height:55px; object-fit:contain;">
+            </a>
+
+            <div class="search-container">
+                <form class="search-form">
+                    <input type="text" class="search-input" placeholder="جستجو در محصولات، برندها و...">
+                    <button type="submit" class="search-btn">
+                        <i class="fa-solid fa-magnifying-glass"></i>
+                    </button>
+                </form>
+            </div>
+
+            <div class="header-icons">
+                <div class="icon-item">
+                    <a href="#">
+                        <img src="user.jpg" alt="حساب کاربری" style="height:35px; object-fit:contain;">
+                    </a>
+                </div>
+                <div class="icon-item">
+                    <a href="#">
+                        <img src="favorite.jpg" alt="علاقه مندی" style="height:35px; object-fit:contain;">
+                    </a>
+                </div>
+                <div class="icon-item">
+                    <span class="cart-count">۳</span>
+                    <a href="#">
+                        <img src="cart.jpg" alt="سبد خرید" style="height:35px; object-fit:contain;">
+                    </a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <nav class="nav-bar">
+        <div class="container">
+            <ul class="nav-links">
+                <li><a href="#">همه دسته‌بندی‌ها</a></li>
+                <li><a href="#">کفش</a></li>
+                <li><a href="#">هودی و سویشرت</a></li>
+                <li><a href="#">تیشرت</a></li>
+                <li><a href="#">کاپشن</a></li>
+                <li><a href="#" style="color: var(--primary-color); font-weight: 700;">پیشنهاد ویژه</a></li>
+            </ul>
+        </div>
+    </nav>
+    
+    <main>
+        <section class="hero">
+            <div class="container">
+                <div class="slider-container">
+                    <div class="swiper-wrapper" id="main-slider">
+                        <!-- Slide 1 with bapesliderGirl.png -->
+                        <div class="slide-item">
+                            <img src="bapesliderGirl.png" alt="Special Offer">
+                            <div class="slide-content">
+                                <h2>🎁 ۳۰٪ تخفیف ویژه کالکشن زمستانی</h2>
+                                <p>بهترین‌های فصل را با قیمت‌های باورنکردنی کشف کنید. فقط برای مدت محدود!</p>
+                                <a href="#" class="btn btn-accent">مشاهده محصولات</a>
+                            </div>
+                        </div>
+
+                        <!-- Slide 2 with denimslider.png -->
+                        <div class="slide-item">
+                            <img src="denimslider.png" alt="Special Offer">
+                            <div class="slide-content">
+                                <h2>🎁 ۳۰٪ تخفیف ویژه کالکشن زمستانی</h2>
+                                <p>بهترین‌های فصل را با قیمت‌های باورنکردنی کشف کنید. فقط برای مدت محدود!</p>
+                                <a href="#" class="btn btn-accent">مشاهده محصولات</a>
+                            </div>
+                        </div>
+
+                        <div class="slide-item">
+                            <img src="LVslider.png" alt="Special Offer">
+                            <div class="slide-content">
+                                <h2>🎁 ۳۰٪ تخفیف ویژه کالکشن زمستانی</h2>
+                                <p>بهترین‌های فصل را با قیمت‌های باورنکردنی کشف کنید. فقط برای مدت محدود!</p>
+                                <a href="#" class="btn btn-accent">مشاهده محصولات</a>
+                            </div>
+                        </div>
+                        
+                        <!-- Admin can add more slides here easily -->
+                        <!-- 
+                        <div class="slide-item">
+                            <img src="slide3.jpg" alt="New Arrival">
+                            <div class="slide-content">
+                                <h2>🆕 محصولات جدید</h2>
+                                <p>جدیدترین محصولات با بهترین کیفیت.</p>
+                                <a href="#" class="btn">مشاهده</a>
+                            </div>
+                        </div>
+                        -->
+                    </div>
+                    
+                    <div class="slider-nav nav-prev" id="prev-btn"><i class="fa-solid fa-chevron-right"></i></div>
+                    <div class="slider-nav nav-next" id="next-btn"><i class="fa-solid fa-chevron-left"></i></div>
+                    
+                    <!-- Slider Indicators -->
+                    <div class="slider-indicators" id="slider-indicators">
+                        <!-- Indicators will be generated by JavaScript -->
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <div class="container">
+            <h2 class="section-title">محصولات پیشنهادی</h2>
+            
+            <div class="product-grid">
+                <div class="product-card">
+                    <div class="product-image">
+                        <img src="https://images.unsplash.com/photo-1523275335684-37898b6baf30?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" alt="Watch" style="width:100%; height:100%; object-fit:cover;">
+                    </div>
+                    <div class="product-details">
+                        <div class="product-category">اکسسوری</div>
+                        <div class="product-title">ساعت مچی نقره‌ای مینیمال</div>
+                        <div class="product-footer">
+                            <div class="price">۴,۲۹۰,۰۰۰ تومان</div>
+                            <button class="add-btn"><i class="fa-solid fa-plus"></i></button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="product-card">
+                    <div class="product-image">
+                        <img src="https://images.unsplash.com/photo-1505740420928-5e560c06d30e?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" alt="Headphones" style="width:100%; height:100%; object-fit:cover;">
+                    </div>
+                    <div class="product-details">
+                        <div class="product-category">صوتی</div>
+                        <div class="product-title">هدفون نویز کنسلینگ</div>
+                        <div class="product-footer">
+                            <div class="price">۸,۵۰۰,۰۰۰ تومان</div>
+                            <button class="add-btn"><i class="fa-solid fa-plus"></i></button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="product-card">
+                    <div class="product-image">
+                        <img src="https://images.unsplash.com/photo-1542291026-7eec264c27ff?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" alt="Sneaker" style="width:100%; height:100%; object-fit:cover;">
+                    </div>
+                    <div class="product-details">
+                        <div class="product-category">کفش</div>
+                        <div class="product-title">کتانی رانینگ شهری</div>
+                        <div class="product-footer">
+                            <div class="price">۳,۱۵۰,۰۰۰ تومان</div>
+                            <button class="add-btn"><i class="fa-solid fa-plus"></i></button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="product-card">
+                    <div class="product-image">
+                        <img src="https://images.unsplash.com/photo-1586495777744-4413f21062fa?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" alt="Cream" style="width:100%; height:100%; object-fit:cover;">
+                    </div>
+                    <div class="product-details">
+                        <div class="product-category">زیبایی و سلامت</div>
+                        <div class="product-title">کرم صورت ارگانیک</div>
+                        <div class="product-footer">
+                            <div class="price">۸۵۰,۰۰۰ تومان</div>
+                            <button class="add-btn"><i class="fa-solid fa-plus"></i></button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <script>
+        // اسکریپت برای فعال‌سازی اسلایدر
+        document.addEventListener('DOMContentLoaded', function() {
+            const slider = document.getElementById('main-slider');
+            const slides = document.querySelectorAll('.slide-item');
+            const prevBtn = document.getElementById('prev-btn');
+            const nextBtn = document.getElementById('next-btn');
+            const indicatorsContainer = document.getElementById('slider-indicators');
+            
+            let currentSlide = 0;
+            const totalSlides = slides.length;
+            
+            // تنظیم خودکار عرض اسلایدر بر اساس تعداد اسلایدها
+            slider.style.width = `${totalSlides * 100}%`;
+            
+            // تنظیم عرض هر اسلاید
+            slides.forEach(slide => {
+                slide.style.width = `${100 / totalSlides}%`;
+            });
+            
+            // ایجاد نشانگرهای اسلایدر
+            function createIndicators() {
+                indicatorsContainer.innerHTML = '';
+                for (let i = 0; i < totalSlides; i++) {
+                    const indicator = document.createElement('div');
+                    indicator.className = 'slider-indicator';
+                    if (i === 0) indicator.classList.add('active');
+                    indicator.addEventListener('click', () => goToSlide(i));
+                    indicatorsContainer.appendChild(indicator);
+                }
+            }
+            
+            // به روزرسانی نشانگرها
+            function updateIndicators() {
+                const indicators = document.querySelectorAll('.slider-indicator');
+                indicators.forEach((indicator, index) => {
+                    if (index === currentSlide) {
+                        indicator.classList.add('active');
+                    } else {
+                        indicator.classList.remove('active');
+                    }
+                });
+            }
+            
+            function goToSlide(index) {
+                // محاسبه موقعیت اسلاید جدید
+                currentSlide = index;
+                
+                // حرکت اسلایدر به موقعیت جدید
+                const translateXValue = currentSlide * (100 / totalSlides);
+                slider.style.transform = `translateX(-${translateXValue}%)`;
+                
+                // به روزرسانی نشانگرها
+                updateIndicators();
+            }
+            
+            function nextSlide() {
+                let nextIndex = currentSlide + 1;
+                if (nextIndex >= totalSlides) {
+                    nextIndex = 0; // برگشت به اسلاید اول
+                }
+                goToSlide(nextIndex);
+            }
+            
+            function prevSlide() {
+                let prevIndex = currentSlide - 1;
+                if (prevIndex < 0) {
+                    prevIndex = totalSlides - 1; // رفتن به اسلاید آخر
+                }
+                goToSlide(prevIndex);
+            }
+            
+            // اضافه کردن رویدادها به دکمه‌ها
+            nextBtn.addEventListener('click', nextSlide);
+            prevBtn.addEventListener('click', prevSlide);
+            
+            // ایجاد نشانگرها
+            createIndicators();
+            
+            // تغییر خودکار اسلایدها هر 5 ثانیه
+            let slideInterval = setInterval(nextSlide, 5000);
+            
+            // توقف تغییر خودکار وقتی کاربر با اسلایدر تعامل می‌کند
+            slider.addEventListener('mouseenter', () => clearInterval(slideInterval));
+            slider.addEventListener('mouseleave', () => {
+                slideInterval = setInterval(nextSlide, 5000);
+            });
+        });
+    </script>
+</body>
+</html>
